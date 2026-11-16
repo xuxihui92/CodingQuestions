@@ -1,39 +1,72 @@
 # CodingQuestions
 
-Personal Java practice set for coding interview / algorithm questions.
+Personal **Kotlin** practice set for coding-interview / algorithm questions.
 
-> Formerly **JavaPractice**. Same history and exercises; name updated to match the purpose.
+> Formerly **JavaPractice**. Solutions were migrated from Java to idiomatic Kotlin.
 
-## How to run an exercise
+## Layout
 
-From the repo root (requires a JDK):
-
-```bash
-# Example: Rotate Image
-javac "Rotate Image/src/com/company/Main.java"
-java -cp "Rotate Image/src" com.company.Main
+```text
+problems/<slug>/Solution.kt   # solution + small demo / self-checks
+scripts/run.sh <slug>         # compile and run one problem
+scripts/run-all.sh            # compile and run every problem
 ```
 
-Or open the exercise folder in IntelliJ IDEA (each folder has its own `.iml` / `.idea` project) and run `Main`.
+Each `Solution.kt` exposes the core function(s) and a `main` that prints sample results and asserts a few cases.
 
-Some programs read from stdin; others use hard-coded sample inputs in `main`.
+## Prerequisites
+
+- JDK 17+ (`java` / `javac` on `PATH`)
+- [Kotlin compiler](https://kotlinlang.org/docs/command-line.html) (`kotlinc` / `kotlin` on `PATH`)
+
+Install Kotlin (example):
+
+```bash
+# macOS
+brew install kotlin
+
+# or download the compiler zip from JetBrains and add kotlinc/bin to PATH
+```
+
+## How to run
+
+From the repo root:
+
+```bash
+# one problem
+./scripts/run.sh rotate-image
+
+# everything
+./scripts/run-all.sh
+```
+
+Or manually:
+
+```bash
+kotlinc problems/rotate-image/Solution.kt -include-runtime -d /tmp/rotate-image.jar
+kotlin -classpath /tmp/rotate-image.jar SolutionKt
+# (or: java -jar /tmp/rotate-image.jar)
+```
 
 ## Problems
 
-| Folder | One-liner |
+| Slug | Description |
 | --- | --- |
-| [Basic Calculator](Basic%20Calculator/) | Evaluate `+` / `-` expressions with parentheses. |
-| [Basic Calculator2](Basic%20Calculator2/) | Evaluate `+` `-` `*` `/` expressions (no parentheses). |
-| [Count Palindrome](Count%20Palindrome/) | Count distinct and total palindromic substrings. |
-| [Divide String](Divide%20String/) | Split on a delimiter char and pick the Nth group. |
-| [Longest Consecutive Sequence](Longest%20Consecutive%20Sequence/) | Longest run of consecutive integers in an array. |
-| [Longest Palindromic Substring](Longest%20Palindromic%20Substring/) | Find the longest palindromic substring. |
-| [Multiply Strings](Multiply%20Strings/) | Multiply two non-negative integers given as strings. |
-| [Pick Number](Pick%20Number/) | Extract digits from a string and print them sorted. |
-| [Remove Invalid Parentheses](Remove%20Invalid%20Parentheses/) | Remove fewest parentheses to make the string valid. |
-| [Reverse Number](Reverse%20Number/) | Reverse digits of a 32-bit integer (overflow → 0). |
-| [Rotate Image](Rotate%20Image/) | Rotate an n×n matrix 90° clockwise in-place. |
-| [Sort List](Sort%20List/) | Sort a singly linked list (merge sort). |
-| [Word Search](Word%20Search/) | Search for a word on a 2D letter board (DFS). |
+| [basic-calculator](problems/basic-calculator/) | Evaluate `+` / `-` expressions with parentheses. |
+| [basic-calculator-ii](problems/basic-calculator-ii/) | Evaluate `+` `-` `*` `/` expressions (no parentheses). |
+| [count-palindrome](problems/count-palindrome/) | Count distinct and total palindromic substrings. |
+| [divide-string](problems/divide-string/) | Split on a delimiter char and pick the Nth group. |
+| [longest-consecutive-sequence](problems/longest-consecutive-sequence/) | Longest run of consecutive integers in an array. |
+| [longest-palindromic-substring](problems/longest-palindromic-substring/) | Find the longest palindromic substring. |
+| [multiply-strings](problems/multiply-strings/) | Multiply two non-negative integers given as strings. |
+| [pick-number](problems/pick-number/) | Extract digits from a string and print them sorted. |
+| [remove-invalid-parentheses](problems/remove-invalid-parentheses/) | Remove fewest parentheses to make the string valid. |
+| [reverse-number](problems/reverse-number/) | Reverse digits of a 32-bit integer (overflow → 0). |
+| [rotate-image](problems/rotate-image/) | Rotate an n×n matrix 90° clockwise in-place. |
+| [sort-list](problems/sort-list/) | Sort a singly linked list (merge sort). |
+| [word-search](problems/word-search/) | Search for a word on a 2D letter board (DFS). |
 
-See [NOTE.md](NOTE.md) for a short statement of purpose.
+## Notes
+
+- Solutions are for practice and study, not a library.
+- Java / IntelliJ per-folder projects (`.iml`, `.idea`, `out/`) were removed in the Kotlin migration.
