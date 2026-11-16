@@ -1,11 +1,24 @@
-# Compiled output
+# Build / run artifacts
 **/out/
+**/build/
 **/*.class
+**/*.jar
+**/*.kotlin_module
+.kotlin/
 
 # OS junk
 .DS_Store
 Thumbs.db
 
-# Local IDE runtime (keep committed .iml / .idea project files)
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*~
+
+# Local logs / crash dumps
 **/hs_err_pid*
 *.log
