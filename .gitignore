@@ -1,0 +1,11 @@
+# Compiled output
+**/out/
+**/*.class
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local IDE runtime (keep committed .iml / .idea project files)
+**/hs_err_pid*
+*.log
